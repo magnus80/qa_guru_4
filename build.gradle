@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'io.qaguru'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.7.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    implementation('com.codeborne:selenide:5.16.2')
+    testImplementation('org.slf4j:slf4j-simple:1.7.29')
+    testImplementation "com.github.javafaker:javafaker:1.0.2"
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+test {
+    useJUnitPlatform()
+}
